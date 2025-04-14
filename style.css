@@ -1,0 +1,20 @@
+.kanit-thin {
+    font-family: "Kanit", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.box{
+    background-color: lightblue;
+    padding: 20px;
+    height: 500px;
+    width: 500px;
+    border-radius: 10%;
+
+}
+.box{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    
+}

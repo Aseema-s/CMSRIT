@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
-    <title>Login | RIT Canteen</title>
-    <link  rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | RIT</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="ind.js" rel="script">
+    
 </head>
-<body>
-    <h2 style="text-align: center;">Login Page</h2>
-    <div class="box" style="height:auto; border: 5px solid palevioletred;">
-    <form action="/login" method="post">
-        <label>Username:</label>
-        <input type="text" name="username" required><br><br>
+<body class="font-sans text-gray-800">
+    <div class="w-full max-w-md px-8 py-10 form-container rounded-lg">
+        <div class="text-center mb-8 ">
+            <h1 class="text-2xl font-bold mb-1">Welcome Back</h1>
+            <p class="text-gray-600">Sign in to continue</p>
+        </div>
         
-        <label>Password:</label>
-        <input type="password" name="password" required><br><br>
-        
-        <button type="submit">Login</button>
-    </form>
-    </div>
+        <form>
+            <div class="mb-5">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-full flex items-center justify-center">
+                        <i class="ri-user-line text-gray-400"></i>
+                    </div>
+                    <input type="email" class="input-field w-full pl-10 pr-3 py-3 rounded text-sm" placeholder="Email or Username" required>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none w-10 h-full flex items-center justify-center">
+                        <i class="ri-lock-line text-gray-400"></i>
+                    </div>
+                    <input type="password" id="password" class="input-field w-full pl-10 pr-10 py-3 rounded text-sm" placeholder="Password" required>
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer w-10 h-full flex items-center justify-center" id="togglePassword">
+                        <i class="ri-eye-line text-gray-400" id="passwordIcon"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="custom-checkbox mr-2">
+                    <label for="remember" class="text-sm text-gray-600 cursor-pointer">Remember me</label>
+                </div>
+                <a href="#" class="text-sm text-primary hover:underline">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn w-full py-3 text-white font-medium !rounded-button whitespace-nowrap mb-6">Sign In</button>
 </body>
 </html>

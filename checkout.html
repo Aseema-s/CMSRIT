@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canteen Menu</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#8A2BE2',secondary:'#FF69B4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<link href="checkout.css" rel="stylesheet">
+<link href="checkout.js" rel="script">
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-white shadow-md py-4 px-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-restaurant-line text-white ri-lg"></i>
+</div>
+<h1 class="text-2xl font-['Pacifico'] text-primary">RIT Bites</h1>
+</div>
+<div class="relative w-1/3">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<i class="ri-search-line text-gray-400"></i>
+</div>
+<input type="text" class="search-input w-full pl-10 pr-4 py-2 border-none rounded-lg bg-gray-100 text-sm" placeholder="Search for food items...">
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center bg-gray-100 rounded-lg px-4 py-2">
+<i class="ri-wallet-3-line text-primary ri-lg mr-2"></i>
+<span class="font-medium">₹2,033</span>
+</div>
+<div class="relative">
+<div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full cursor-pointer">
+<i class="ri-shopping-cart-line text-gray-700 ri-lg"></i>
+</div>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">
+<i class="ri-user-line mr-1"></i>
+Login
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-6 py-6">
+<!-- Category Tabs -->
+<div class="overflow-x-auto mb-8 pb-2">
+<div class="flex space-x-4 min-w-max">
+<button class="category-tab active px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 transition-all">
+<i class="ri-restaurant-2-line"></i>
+<span>All Items</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-cake-line"></i>
+<span>Snacks/Chats</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-cake-3-line"></i>
+<span>Desserts</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-bowl-line"></i>
+<span>Chinese</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-pizza-line"></i>
+<span>Italian</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-cup-line"></i>
+<span>Beverages</span>
+</button>
+<button class="category-tab px-6 py-3 !rounded-button whitespace-nowrap flex items-center space-x-2 bg-white transition-all">
+<i class="ri-fire-line"></i>
+<span>Live Counters</span>
+</button>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex justify-between items-center mb-6">
+<div class="flex space-x-6">
+<div class="flex items-center space-x-2">
+<div class="custom-checkbox" id="veg-checkbox"></div>
+<label for="veg-checkbox" class="text-white">Vegetarian Only</label>
+</div>
+<div class="flex items-center space-x-2">
+<label class="custom-switch">
+<input type="checkbox" id="available-switch">
+<span class="switch-slider"></span>
+</label>
+<span class="text-white">Available Now</span>
+</div>
+</div>
+<div class="flex items-center space-x-2 bg-white rounded-lg px-4 py-2">
+<span>Sort by:</span>
+<div class="relative">
+<button class="flex items-center space-x-2 text-gray-700">
+<span>Popularity</span>
+<i class="ri-arrow-down-s-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Items Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Snacks/Chats -->
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520crispy%2520golden%2520brown%2520onion%2520bajji%2520fritters%2520on%2520a%2520white%2520plate%2520with%2520green%2520chutney%2520on%2520the%2520side%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=1&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Onion Bajji</h3>
+<p class="text-sm text-gray-600">Crispy fritters made with onions</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹208</span>
+<div class="relative">
+<button class="add-to-cart-btn bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm"
+data-id="item1"
+data-name="Onion Bajji"
+data-price="208">
+Add to Cart
+</button>
+<div class="quantity-selector" id="quantity-selector-item1">
+<div class="flex items-center justify-between gap-2">
+<button class="decrease-qty bg-gray-100 px-2 py-1 rounded-button">-</button>
+<input type="number" class="qty-input w-16 text-center border rounded-button py-1" value="1" min="1" max="10">
+<button class="increase-qty bg-gray-100 px-2 py-1 rounded-button">+</button>
+<button class="confirm-add bg-primary text-white px-3 py-1 rounded-button">Add</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520crispy%2520golden%2520brown%2520potato%2520bajji%2520fritters%2520on%2520a%2520white%2520plate%2520with%2520green%2520chutney%2520on%2520the%2520side%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=2&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Potato Bajji</h3>
+<p class="text-sm text-gray-600">Spiced potato fritters</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹228</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520crispy%2520golden%2520brown%2520egg%2520bajji%2520fritters%2520on%2520a%2520white%2520plate%2520with%2520green%2520chutney%2520on%2520the%2520side%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=3&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Egg Bajji</h3>
+<p class="text-sm text-gray-600">Boiled eggs in spicy batter</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot unavailable mr-1"></span>
+<span class="text-sm text-gray-600">Unavailable</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹270</span>
+<button class="bg-gray-300 text-gray-600 px-3 py-1.5 !rounded-button whitespace-nowrap text-sm cursor-not-allowed">
+Sold Out
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520panipuri%2520with%2520tamarind%2520water%2520and%2520mint%2520chutney%2520on%2520a%2520white%2520plate%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=4&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Panipuri</h3>
+<p class="text-sm text-gray-600">Crispy shells with spicy water</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹291</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<!-- Desserts -->
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520chocolate%2520lava%2520cake%2520with%2520molten%2520chocolate%2520center%2520on%2520a%2520white%2520plate%2520with%2520a%2520scoop%2520of%2520vanilla%2520ice%2520cream%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=5&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Choco Lava Cake</h3>
+<p class="text-sm text-gray-600">Warm cake with molten center</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹374</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520ice%2520cream%2520scoops%2520in%2520different%2520flavors%2520in%2520a%2520glass%2520bowl%2520with%2520wafer%2520sticks%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=6&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Ice Cream</h3>
+<p class="text-sm text-gray-600">Assorted flavors available</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹311</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<!-- Chinese -->
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520egg%2520fried%2520rice%2520in%2520a%2520white%2520bowl%2520with%2520chopsticks%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=7&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Egg Fried Rice</h3>
+<p class="text-sm text-gray-600">Rice with scrambled eggs and veggies</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹436</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520gobi%2520manchurian%2520in%2520a%2520white%2520bowl%2520with%2520garnish%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=8&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Gobi Manchurian</h3>
+<p class="text-sm text-gray-600">Crispy cauliflower in spicy sauce</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹394</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<!-- Italian -->
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520cheese%2520pizza%2520with%2520melted%2520mozzarella%2520and%2520basil%2520leaves%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=9&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Cheese Pizza</h3>
+<p class="text-sm text-gray-600">Classic pizza with extra cheese</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹540</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=delicious%2520club%2520sandwich%2520with%2520layers%2520of%2520vegetables%2520and%2520cheese%2520on%2520a%2520white%2520plate%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=10&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Club Sandwich</h3>
+<p class="text-sm text-gray-600">Triple-decker with veggies and cheese</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot unavailable mr-1"></span>
+<span class="text-sm text-gray-600">Unavailable</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹477</span>
+<button class="bg-gray-300 text-gray-600 px-3 py-1.5 !rounded-button whitespace-nowrap text-sm cursor-not-allowed">
+Sold Out
+</button>
+</div>
+</div>
+</div>
+<!-- Beverages -->
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=refreshing%2520glass%2520of%2520sprite%2520with%2520ice%2520cubes%2520and%2520lime%2520slice%2520on%2520a%2520white%2520surface%252C%2520soft%2520focus%2520background%252C%2520professional%2520beverage%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=11&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Sprite</h3>
+<p class="text-sm text-gray-600">Refreshing lemon-lime soda</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹145</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+<div class="menu-container rounded-lg overflow-hidden shadow-lg">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=refreshing%2520glass%2520of%2520fruit%2520juice%2520with%2520mango%2520and%2520orange%2520slices%2520on%2520a%2520white%2520surface%252C%2520soft%2520focus%2520background%252C%2520professional%2520beverage%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=400&height=300&seq=12&orientation=landscape');" class="h-48 bg-cover bg-center object-top"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-semibold text-lg">Maa Juice</h3>
+<p class="text-sm text-gray-600">Fresh fruit juice blend</p>
+</div>
+<div class="flex items-center">
+<span class="availability-dot available mr-1"></span>
+<span class="text-sm text-gray-600">Available</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-primary">₹187</span>
+<button class="bg-primary text-white px-3 py-1.5 !rounded-button whitespace-nowrap text-sm">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer with Payment Options -->
+<footer class="bg-white py-4 px-6 shadow-inner mt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<h3 class="font-semibold text-lg mb-2">Payment Methods</h3>
+<div class="flex space-x-4">
+<div class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+<i class="ri-bank-card-line text-gray-700"></i>
+<span>Card</span>
+</div>
+<div class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+<i class="ri-wallet-3-line text-gray-700"></i>
+<span>Wallet</span>
+</div>
+<div class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+<i class="ri-cash-line text-gray-700"></i>
+<span>Cash</span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<span class="text-gray-700">Total:</span>
+<span class="font-bold text-primary text-xl">₹1,038</span>
+</div>
+<a href="https://readdy.ai/home/44aabd7f-4faf-419f-ab04-5abf9d73d2c9/66839763-7b08-408b-aeed-f2427bd3e7a8" data-readdy="true">
+  <button class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap">
+    Proceed to Checkout
+  </button>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>

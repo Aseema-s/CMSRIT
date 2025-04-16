@@ -1,0 +1,116 @@
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #8A2BE2, #FF69B4);
+    min-height: 100vh;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #8A2BE2;
+    background-color: white;
+    cursor: pointer;
+}
+
+.custom-radio.checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #8A2BE2;
+}
+
+.payment-method {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.payment-method.active {
+    border-color: #8A2BE2;
+    background-color: rgba(138, 43, 226, 0.05);
+}
+
+.card-input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.card-input:focus {
+    outline: none;
+    border-bottom-color: #8A2BE2;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.coupon-input {
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.coupon-input:focus {
+    outline: none;
+    border-color: #8A2BE2;
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.1);
+}

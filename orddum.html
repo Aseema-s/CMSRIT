@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Campus Bites</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#8A2BE2',secondary:'#FF69B4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<link href="orddum.css" rel="stylesheet">
+<link href="orddum.js" rel="script">
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+                    <i class="ri-restaurant-line text-white ri-lg"></i>
+                </div>
+                <h1 class="text-2xl font-['Pacifico'] text-primary">RIT Bites</h1>
+            </div>
+            <div class="relative w-1/3">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="ri-search-line text-gray-400"></i>
+                </div>
+                <input type="text" class="w-full pl-10 pr-4 py-2 border-none rounded-lg bg-gray-100 text-sm" placeholder="Search for food items...">
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center bg-gray-100 rounded-lg px-4 py-2">
+                    <i class="ri-wallet-3-line text-primary ri-lg mr-2"></i>
+                    <span class="font-medium">₹2,033</span>
+                </div>
+                <div class="relative">
+                    <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full cursor-pointer">
+                        <i class="ri-shopping-cart-line text-gray-700 ri-lg"></i>
+                    </div>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </div>
+                <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">
+                    <i class="ri-user-line mr-1"></i>
+                    Login
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumb -->
+            <div class="flex items-center space-x-2 mb-6 text-white">
+                <a href="https://readdy.ai/home/44aabd7f-4faf-419f-ab04-5abf9d73d2c9/f3b9bd13-3804-4356-8774-c19b804caa2b" data-readdy="true" class="hover:underline">Menu</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span class="font-medium">Checkout</span>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left Column - Order Details -->
+                <div class="lg:w-2/3 bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold mb-6">Order Summary</h2>
+                    
+                    <!-- Cart Items -->
+                    <div class="space-y-4 mb-8">
+                        <!-- Item 1 -->
+                        <div class="flex items-center border-b pb-4">
+                            <div class="w-20 h-20 rounded-lg overflow-hidden mr-4">
+                                <img src="https://readdy.ai/api/search-image?query=delicious%2520crispy%2520golden%2520brown%2520onion%2520bajji%2520fritters%2520on%2520a%2520white%2520plate%2520with%2520green%2520chutney%2520on%2520the%2520side%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=80&height=80&seq=101&orientation=squarish" alt="Onion Bajji" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h3 class="font-medium">Onion Bajji</h3>
+                                    <span class="font-semibold text-primary">₹208</span>
+                                </div>
+                                <p class="text-sm text-gray-500">Crispy fritters made with onions</p>
+                                <div class="flex justify-between items-center mt-2">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease-qty">
+                                            <i class="ri-subtract-line"></i>
+                                        </button>
+                                        <span class="text-sm font-medium">1</span>
+                                        <button class="quantity-btn increase-qty">
+                                            <i class="ri-add-line"></i>
+                                        </button>
+                                    </div>
+                                    <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="flex items-center border-b pb-4">
+                            <div class="w-20 h-20 rounded-lg overflow-hidden mr-4">
+                                <img src="https://readdy.ai/api/search-image?query=delicious%2520ice%2520cream%2520scoops%2520in%2520different%2520flavors%2520in%2520a%2520glass%2520bowl%2520with%2520wafer%2520sticks%252C%2520soft%2520focus%2520background%252C%2520professional%2520food%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=80&height=80&seq=102&orientation=squarish" alt="Ice Cream" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h3 class="font-medium">Ice Cream</h3>
+                                    <span class="font-semibold text-primary">₹311</span>
+                                </div>
+                                <p class="text-sm text-gray-500">Assorted flavors available</p>
+                                <div class="flex justify-between items-center mt-2">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease-qty">
+                                            <i class="ri-subtract-line"></i>
+                                        </button>
+                                        <span class="text-sm font-medium">1</span>
+                                        <button class="quantity-btn increase-qty">
+                                            <i class="ri-add-line"></i>
+                                        </button>
+                                    </div>
+                                    <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="flex items-center pb-4">
+                            <div class="w-20 h-20 rounded-lg overflow-hidden mr-4">
+                                <img src="https://readdy.ai/api/search-image?query=refreshing%2520glass%2520of%2520sprite%2520with%2520ice%2520cubes%2520and%2520lime%2520slice%2520on%2520a%2520white%2520surface%252C%2520soft%2520focus%2520background%252C%2520professional%2520beverage%2520photography%252C%2520clean%2520white%2520background%252C%2520appetizing&width=80&height=80&seq=103&orientation=squarish" alt="Sprite" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h3 class="font-medium">Sprite</h3>
+                                    <span class="font-semibold text-primary">₹145</span>
+                                </div>
+                                <p class="text-sm text-gray-500">Refreshing lemon-lime soda</p>
+                                <div class="flex justify-between items-center mt-2">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn decrease-qty">
+                                            <i class="ri-subtract-line"></i>
+                                        </button>
+                                        <span class="text-sm font-medium">1</span>
+                                        <button class="quantity-btn increase-qty">
+                                            <i class="ri-add-line"></i>
+                                        </button>
+                                    </div>
+                                    <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Instructions -->
+                    <div class="mb-8">
+                        <h3 class="font-medium mb-2">Special Instructions</h3>
+                        <textarea class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" rows="2" placeholder="Any special requests for your order?"></textarea>
+                    </div>
+                    
+                    <!-- Coupon Code -->
+                    <div class="mb-8">
+                        <h3 class="font-medium mb-2">Coupon Code</h3>
+                        <div class="flex gap-2">
+                            <input type="text" class="flex-1 px-4 py-3 coupon-input rounded-lg" placeholder="Enter coupon code">
+                            <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">Apply</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Options -->
+                    <div class="mb-8">
+                        <h3 class="font-medium mb-4">Delivery Options</h3>
+                        <div class="flex space-x-6 mb-6">
+                            <div class="flex items-center space-x-2">
+                                <div class="custom-radio checked" id="dine-in-radio"></div>
+                                <label for="dine-in-radio">Dine-in</label>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="custom-radio" id="takeaway-radio"></div>
+                                <label for="takeaway-radio">Takeaway</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Delivery Address (Hidden by default, shown when Takeaway is selected) -->
+                        <div id="delivery-address" class="hidden bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium mb-4">Delivery Address</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Full Name</label>
+                                    <input type="text" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-600 mb-1">Phone Number</label>
+                                    <input type="tel" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" placeholder="Your phone number">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm text-gray-600 mb-1">Building/Room Number</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" placeholder="Building name, room number">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Delivery Instructions (Optional)</label>
+                                <textarea class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" rows="2" placeholder="Any specific instructions for delivery"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div>
+                        <h3 class="font-medium mb-4">Payment Method</h3>
+                        <div class="space-y-4">
+                            <!-- Card Payment -->
+                            <div class="payment-method active rounded-lg p-4 cursor-pointer" id="card-payment">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full">
+                                            <i class="ri-bank-card-line text-primary ri-lg"></i>
+                                        </div>
+                                        <span class="font-medium">Card Payment</span>
+                                    </div>
+                                    <div class="custom-radio checked"></div>
+                                </div>
+                                <div class="card-details">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Card Number</label>
+                                            <input type="text" class="card-input w-full" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Name on Card</label>
+                                            <input type="text" class="card-input w-full" placeholder="John Doe">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Expiry Date</label>
+                                            <input type="text" class="card-input w-full" placeholder="MM/YY">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">CVV</label>
+                                            <input type="text" class="card-input w-full" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Digital Wallet -->
+                            <div class="payment-method rounded-lg p-4 cursor-pointer" id="wallet-payment">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full">
+                                            <i class="ri-wallet-3-line text-primary ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <span class="font-medium">Digital Wallet</span>
+                                            <p class="text-sm text-gray-500">Current balance: ₹2,033</p>
+                                        </div>
+                                    </div>
+                                    <div class="custom-radio"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- UPI Payment -->
+                            <div class="payment-method rounded-lg p-4 cursor-pointer" id="upi-payment">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full">
+                                            <i class="ri-qr-code-line text-primary ri-lg"></i>
+                                        </div>
+                                        <span class="font-medium">UPI Payment</span>
+                                    </div>
+                                    <div class="custom-radio"></div>
+                                </div>
+                                <div class="upi-details hidden">
+                                    <div class="mb-4">
+                                        <label class="block text-sm text-gray-600 mb-1">UPI ID</label>
+                                        <input type="text" class="card-input w-full" placeholder="username@upi">
+                                    </div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <button class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+                                            <i class="ri-google-fill text-gray-700"></i>
+                                            <span>Google Pay</span>
+                                        </button>
+                                        <button class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+                                            <i class="ri-phone-fill text-gray-700"></i>
+                                            <span>PhonePe</span>
+                                        </button>
+                                        <button class="flex items-center space-x-1 bg-gray-100 px-3 py-2 rounded-lg">
+                                            <i class="ri-paypal-fill text-gray-700"></i>
+                                            <span>Paytm</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Cash on Delivery -->
+                            <div class="payment-method rounded-lg p-4 cursor-pointer" id="cash-payment">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full">
+                                            <i class="ri-cash-line text-primary ri-lg"></i>
+                                        </div>
+                                        <div>
+                                            <span class="font-medium">Cash on Delivery</span>
+                                            <p class="text-sm text-gray-500">Please keep exact change ready</p>
+                                        </div>
+                                    </div>
+                                    <div class="custom-radio"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Price Summary -->
+                <div class="lg:w-1/3">
+                    <div class="bg-white rounded-lg shadow-lg p-6 sticky top-6">
+                        <h2 class="text-xl font-semibold mb-6">Price Details</h2>
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span>₹664.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tax (5%)</span>
+                                <span>₹33.20</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Delivery Charge</span>
+                                <span>₹0.00</span>
+                            </div>
+                            <div class="flex justify-between text-green-600">
+                                <span>Discount</span>
+                                <span>-₹0.00</span>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between font-bold">
+                                <span>Total Amount</span>
+                                <span class="text-primary text-xl">₹697.20</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-4 !rounded-button whitespace-nowrap font-medium">
+                            Place Order
+                        </button>
+                        <a href="https://readdy.ai/home/44aabd7f-4faf-419f-ab04-5abf9d73d2c9/f3b9bd13-3804-4356-8774-c19b804caa2b" data-readdy="true" class="block text-center mt-4 text-primary hover:underline">
+                            Back to Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

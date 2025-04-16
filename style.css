@@ -64,3 +64,10 @@
      border-width: 0 2px 2px 0;
      transform: rotate(45deg);
  }
+ header{
+    position: absolute;
+    bottom: 90%;
+    width: 99%;
+    border-radius: 10px;
+
+ }

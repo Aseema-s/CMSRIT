@@ -112,3 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+function redirectToPage() {
+    window.location.href = "juice_menu.html";
+  }

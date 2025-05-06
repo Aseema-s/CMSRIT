@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Account Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8A2BE2, #FF69B4, #4169E1);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgb(216, 243, 249);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #008cdd;
+        }
+
+        .card-group {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .card {
+            width: 100px;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card{
+            border-color: #a5c2d3;
+            background-color: #e5b9e6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Choose Account Type</h2>
+        <div class="card-group">
+            <div class="card selected" onclick="redirectToPage()">
+                <img src="https://img.icons8.com/ios-filled/100/000000/restaurant.png" alt="Canteen" />
+                <p>Canteen</p>
+            </div>
+            <div class="card" onclick="redirectToPage()">
+                <img src="https://img.icons8.com/ios-filled/100/000000/student-center.png" alt="Student" />
+                <p>Student</p>
+            </div>
+        </div>
+</body>
+<script>
+     function redirectToPage() {
+      window.location.href = "login.html";
+    }
+</script>
+  
+
+</html>
